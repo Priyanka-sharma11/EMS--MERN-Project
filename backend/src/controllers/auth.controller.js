@@ -32,7 +32,7 @@ async function registerUser(req, res) {
         { expiresIn: '7d' }
     );
 
-    res.cookie('token', token, { httpOnly: true, sameSite: 'lax' });
+    res.cookie('token', token, { httpOnly: true, sameSite: 'none' , secure:true });
 
     res.status(201).json({
         message: 'User registered successfully',
@@ -70,7 +70,7 @@ async function loginUser(req, res) {
         { expiresIn: '7d' }
     );
 
-    res.cookie('token', token, { httpOnly: true, sameSite: 'lax' });
+    res.cookie('token', token, { httpOnly: true, sameSite: 'none', secure:true });
 
     res.status(200).json({
         message: 'Logged in successfully',
